@@ -4,7 +4,7 @@ You will find many data cleaning steps in the Cleaning section.
 The ScalingReal section includes data preprocessing, celaning and scaling stages.
 
 08.11.2023
--------------------------------------
+----------------------------------------------------------------------------------------------------
 We will continue to improve and edit these parts. We have a few algorithms and methods that we will add. Once we have organized these and made them useful, we will load the Testing part and test the model. After making the final arrangements, our Model will be ready.
 
 
@@ -13,4 +13,7 @@ In the visualization section, there are a few visualization techniques to get in
 Note : Cleaning section and ScalingReal section done earlier but uploaded now with the development part.
 
 04.12.2023
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+We add extra cleaning process and rearrange the algorithms.
+12.12.2023
+----------------------------------------------------------------------------------------------------
