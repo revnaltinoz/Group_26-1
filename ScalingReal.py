@@ -55,13 +55,23 @@ df['explicit'] = df['explicit'].map({'True': 1, 'False': 0})
 ghost = df.copy()
 #Df have many duplicates drop them but one of them must stay.
 df.drop_duplicates(subset=['track_id'], keep='first', inplace=True)
-
-#Get these specific dataframes use it later.
+# Error 1 = There is one music but this music has one more album in same time so it is bad for data.
+df.drop_duplicates(subset=['artists', 'track_name'], keep='first', inplace=True)
+df = df.reset_index()
 dfGenres = df["track_genre"]
 dfTrack = df["track_id"]
 dfTName = df["track_name"]
 dfTurkish = df[df["track_genre"]=="turkish"]
 dfArtists = df["artists"]
+dfAlbum = df["album_name"]
+
+
+
+    
+
+
+#Get these specific dataframes use it later.
+
 
 #Drop non-numeric column.
 df = df.drop(["track_id","album_name","track_name","artists"],axis=1)
@@ -81,7 +91,7 @@ df = pd.concat([df,encoding],axis=1)
 encoder = ce.BinaryEncoder(cols=["track_genre"])
 df = encoder.fit_transform(df)
 df = df.rename(columns={'track_genre_0': 'x_7','track_genre_1': 'x_6','track_genre_2': 'x_5','track_genre_3': 'x_4','track_genre_4': 'x_3','track_genre_5': 'x_2','track_genre_6': 'x_1'})
-
+df = df.drop("index",axis=1)
 
 #Finding best correlation between the features.
 def corrResult(min_corr, max_corr, data):
@@ -128,6 +138,7 @@ df=df.drop(["energy","loudness"],axis=1)
 
 
 df = pd.concat([dfArtists,df],axis=1)
+
 dfPopularitySong = df["popularity"]
 
 
